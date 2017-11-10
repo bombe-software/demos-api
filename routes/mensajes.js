@@ -42,13 +42,31 @@ exports.insert = function (request, response) {
 exports.get = function (request, response) {
     response.writeHead(200, { 'Content-Type': 'application/json' });
     console.log(request.body);
-    con.query("select * from Mensaje where id_destinatario = ? || id_remitente = ?",
+    con.query("select * from Mensaje where (id_destinatario = ? && id_remitente = ?) || (id_destinatario = ? && id_remitente = ?)",
       [
-        request.body.id_destinatario,
-        request.body.id_remitente
+        request.body.id_local,
+        request.body.id_externo,
+        request.body.id_externo,
+        request.body.id_local
       ],
       function Query(error, rows) {
         response.end(JSON.stringify(rows));
       }
     );
+};
+
+/**
+ * POST /fetch_conversaciones
+ */
+exports.view = function (request, response) {
+  response.writeHead(200, { 'Content-Type': 'application/json' });
+  console.log(request.body);
+  con.query("call conversaciones(?)",
+    [
+      request.body.id_local
+    ],
+    function Query(error, rows) {
+      response.end(JSON.stringify({rows}));
+    }
+  );
 };

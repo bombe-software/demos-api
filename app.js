@@ -100,6 +100,7 @@ app.post('/insert_elecciones', elecciones.insert);
 var mensajes = require('./routes/mensajes'); 
 app.post('/fetch_mensajes', mensajes.get);
 app.post('/insert_mensajes', mensajes.insert);
+app.post('/fetch_conversaciones', mensajes.view);
 
 
 /*
