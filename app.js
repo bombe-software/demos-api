@@ -10,7 +10,7 @@ var secretario = require("./secretario").new;
 app.use(function (req, res, next) {
 
     // Website you wish to allow to connect
-    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:8080, http://localhost:5000');
+    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:8080');
 
     // Request methods you wish to allow
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
@@ -21,8 +21,10 @@ app.use(function (req, res, next) {
     // Set to true if you need the website to include cookies in the requests sent
     // to the API (e.g. in case you use sessions)
     res.setHeader('Access-Control-Allow-Credentials', true);
-    let ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
-    let footprint = "{METHOD: '"+req.method+"', URL: '"+req.originalUrl+"', IP: '"+ip+"' PARAMS: "+req.body+"}";
+
+    
+    //let ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
+    let footprint = "{METHOD: '"+req.method+"', URL: '"+req.originalUrl+"', IP: '"+req.ip+"' PARAMS: "+req.body+"}";
     secretario.leer("./footprints/foot.txt", data=>{
       if(data == ""){
         secretario.escribir("./footprints/foot.txt",+footprint);
@@ -30,6 +32,7 @@ app.use(function (req, res, next) {
         secretario.escribir("./footprints/foot.txt",data+"\n"+footprint);
       }
     });
+    
 
     // Pass to next layer of middleware
     next();
