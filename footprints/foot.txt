@@ -1,0 +1,9 @@
+{METHOD: 'GET', URL: '/lol', IP: '::1' PARAMS: undefined}
+{METHOD: 'GET', URL: '/lol', IP: '::1' PARAMS: undefined}
+{METHOD: 'GET', URL: '/lol', IP: '::1' PARAMS: undefined}
+{METHOD: 'GET', URL: '/lol', IP: '::1' PARAMS: undefined}
+{METHOD: 'GET', URL: '/lol', IP: '::1' PARAMS: undefined}
+{METHOD: 'GET', URL: '/lol', IP: '::1' PARAMS: undefined}
+{METHOD: 'GET', URL: '/lol', IP: '::1' PARAMS: undefined}
+{METHOD: 'GET', URL: '/lol', IP: '::1' PARAMS: undefined}
+{METHOD: 'GET', URL: '/lol', IP: '::1' PARAMS: undefined}
