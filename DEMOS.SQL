@@ -28,9 +28,9 @@ create table Usuario(
     fecha_registro TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     foreign key (id_tipo_usuario) references Cat_tipo_usuario(id_tipo_usuario)
 );
-insert into Usuario values(null, 'Vicroni', 'drasa_00@hotmail.com', 2, '1204', 'GODSF', 'chivo', 0, 'En algun lugar', null);
-insert into Usuario values(null, 'Jaiba',   'diletalvezalaautopista@gmail.com', 1, 'MedinaVilla123', 'MEVJJ', 'jaiba', 0, 'En algun lugar', null);
-insert into Usuario values(null, 'Admin',   'admin@gmail.com', 1, '123', 'ADMIN', 'jaiba', 0, 'En algun lugar', null);
+insert into Usuario values(null, 'Vicroni', 'drasa_00@hotmail.com', 1, '1204', 'GODSF', 'chivo', 0, 'En algun lugar', null);
+insert into Usuario values(null, 'Jaiba',   'diletalvezalaautopista@gmail.com', 2, 'MedinaVilla123', 'MEVJJ', 'jaiba', 0, 'En algun lugar', null);
+insert into Usuario values(null, 'Admin',   'admin@gmail.com', 2, '123', 'ADMIN', 'jaiba', 0, 'En algun lugar', null);
 insert into Usuario values(null, 'hgwells07', 'carlitose07@gmail.com', 2, 'Hola123', 'GODSF', 'anguila', 0, 'En algun lugar', null);
 
 /*select * from usuario;*/
@@ -542,6 +542,16 @@ insert Mensaje values(null, 3, 1, 'Mensaje 2', null);
 insert Mensaje values(null, 1, 3, 'Mensaje 3', null);
 insert Mensaje values(null, 3, 1, 'Mensaje 4', null);
 
-select * from Mensaje where id_destinatario = 3 || id_remitente = 3;
+
+DROP PROCEDURE IF EXISTS conversaciones; ELSE
+DELIMITER //
+CREATE PROCEDURE conversaciones(in id_usuarioX int) BEGIN   
+	select id_remitente, nombre_usuario from Mensaje inner join Usuario on Usuario.id_usuario = id_remitente where id_destinatario = id_usuarioX group by id_remitente
+	UNION
+	select id_destinatario, nombre_usuario from Mensaje inner join Usuario on Usuario.id_usuario = id_destinatario where id_remitente = id_usuarioX group by id_destinatario;
+END //
+DELIMITER ;
+call conversaciones(1);
+
 
 
