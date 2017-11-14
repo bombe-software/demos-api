@@ -1,19 +1,2 @@
-{METHOD: 'GET', URL: '/lol', IP: '::1' PARAMS: undefined}
-{METHOD: 'GET', URL: '/lol', IP: '::1' PARAMS: undefined}
-{METHOD: 'GET', URL: '/lol', IP: '::1' PARAMS: undefined}
-{METHOD: 'GET', URL: '/lol', IP: '::1' PARAMS: undefined}
-{METHOD: 'GET', URL: '/lol', IP: '::1' PARAMS: undefined}
-{METHOD: 'GET', URL: '/lol', IP: '::1' PARAMS: undefined}
-{METHOD: 'GET', URL: '/lol', IP: '::1' PARAMS: undefined}
-{METHOD: 'GET', URL: '/lol', IP: '::1' PARAMS: undefined}
-{METHOD: 'GET', URL: '/lol', IP: '::1' PARAMS: undefined}
-{METHOD: 'OPTIONS', URL: '/signup', IP: '::1' PARAMS: body}
-{METHOD: 'OPTIONS', URL: '/signup', IP: '::1' PARAMS: body}
-{METHOD: 'POST', URL: '/politicos', IP: '::1' PARAMS: body}
-{METHOD: 'OPTIONS', URL: '/signup', IP: '4' PARAMS: body}
-{METHOD: 'POST', URL: '/signup', IP: '4' PARAMS: body}
-{METHOD: 'OPTIONS', URL: '/signup', IP: '::1' PARAMS: body}
-{METHOD: 'POST', URL: '/signup', IP: '::1' PARAMS: body}
-{METHOD: 'OPTIONS', URL: '/signup', IP: '::1' PARAMS: undefined}
-{METHOD: 'POST', URL: '/signup', IP: '::1' PARAMS: undefined}
-{METHOD: 'POST', URL: '/signup', IP: '::1' PARAMS: undefined}
+NaN
+{METHOD: 'POST', URL: '/login', IP: '::1' PARAMS: undefined}
