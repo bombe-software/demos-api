@@ -4,7 +4,6 @@ use Demos;
 
 /*Usuario-------------------------------------------------------------------------------*/
 
-
 /*1*/
 create table Cat_tipo_usuario(
 	id_tipo_usuario int(2) primary key auto_increment,
@@ -28,7 +27,7 @@ create table Usuario(
     fecha_registro TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     foreign key (id_tipo_usuario) references Cat_tipo_usuario(id_tipo_usuario)
 );
-insert into Usuario values(null, 'Vicroni', 'drasa_00@hotmail.com', 1, '1204', 'GODSF', 'chivo', 0, 'En algun lugar', null);
+insert into Usuario values(null, 'Vicroni', 'drasa_00@hotmail.com', 3, '1204', 'GODSF', 'chivo', 0, 'En algun lugar', null);
 insert into Usuario values(null, 'Jaiba',   'diletalvezalaautopista@gmail.com', 2, 'MedinaVilla123', 'MEVJJ', 'jaiba', 0, 'En algun lugar', null);
 insert into Usuario values(null, 'Admin',   'admin@gmail.com', 2, '123', 'ADMIN', 'jaiba', 0, 'En algun lugar', null);
 insert into Usuario values(null, 'hgwells07', 'carlitose07@gmail.com', 2, 'Hola123', 'GODSF', 'anguila', 0, 'En algun lugar', null);
