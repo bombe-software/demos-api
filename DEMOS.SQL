@@ -32,6 +32,10 @@ insert into Usuario values(null, 'Jaiba',   'diletalvezalaautopista@gmail.com', 
 insert into Usuario values(null, 'Admin',   'admin@gmail.com', 2, '123', 'ADMIN', 'jaiba', 0, 'En algun lugar', null);
 insert into Usuario values(null, 'hgwells07', 'carlitose07@gmail.com', 2, 'Hola123', 'GODSF', 'anguila', 0, 'En algun lugar', null);
 
+CREATE OR REPLACE VIEW UsuarioSeguro AS
+select 
+id_usuario,	nombre_usuario, email, id_tipo_usuario, curp, avatar, puntos, localidad, fecha_registro
+from Usuario;
 /*select * from usuario;*/
 
 
@@ -551,6 +555,7 @@ CREATE PROCEDURE conversaciones(in id_usuarioX int) BEGIN
 END //
 DELIMITER ;
 call conversaciones(1);
+select avatar,	curp, email,fecha_registro,	id_tipo_usuario, id_usuario,localidad, nombre_usuario, puntos from Usuario where email = "drasa_00@hotmail.com"
 
 
 
