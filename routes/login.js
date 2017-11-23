@@ -1,13 +1,9 @@
 //Configurar de la base de datos
 var mysql = require('mysql');
 var CryptoJS = require("crypto-js");
+var config = require('./var_config');
+var con = mysql.createConnection(config.data);
 
-var con = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  password: "n0m3l0",
-  database: "Demos"
-});
 con.connect(function (err) {
   if (err) {
     console.log("Error conexion base");

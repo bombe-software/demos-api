@@ -115,6 +115,10 @@ app.post('/fetch_mensajes', mensajes.get);
 app.post('/insert_mensajes', mensajes.insert);
 app.post('/fetch_conversaciones', mensajes.view);
 
+//mail
+var mail = require('./routes/mail'); 
+app.post('/mail', mail.post);
+
 
 /*
  *	Eventos de  Socket.io 

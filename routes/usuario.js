@@ -1,12 +1,8 @@
 //Configurar de la base de datos
 var mysql = require('mysql');
+var config = require('./var_config');
+var con = mysql.createConnection(config.data);
 
-var con = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  password: "n0m3l0",
-  database: "Demos"
-});
 con.connect(function (err) {
   if (err) {
     console.log("Error conexion base");
@@ -14,23 +10,6 @@ con.connect(function (err) {
   }
   console.log('Conexion establecida :)');
 });
-//Configurar de la base de datos
-var mysql = require('mysql');
-
-var con = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  password: "n0m3l0",
-  database: "Demos"
-});
-con.connect(function (err) {
-  if (err) {
-    console.log("Error conexion base");
-    return;
-  }
-  console.log('Conexion establecida en usuario');
-});
-
 
 /*
  * GET /usuario

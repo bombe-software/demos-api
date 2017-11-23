@@ -529,7 +529,7 @@ CREATE PROCEDURE count_eleccion(in id_lugarX int) BEGIN
     group by Rel_eleccion_usuario.id_politico;   
 END //
 DELIMITER ;
-call count_eleccion(12);
+/**call count_eleccion(12);*/
 
 create table Mensaje(
 	id_mensaje int(50) primary key auto_increment, 
@@ -554,8 +554,10 @@ CREATE PROCEDURE conversaciones(in id_usuarioX int) BEGIN
 	select id_destinatario, nombre_usuario from Mensaje inner join Usuario on Usuario.id_usuario = id_destinatario where id_remitente = id_usuarioX group by id_destinatario;
 END //
 DELIMITER ;
-call conversaciones(1);
+/*call conversaciones(1);
 select avatar,	curp, email,fecha_registro,	id_tipo_usuario, id_usuario,localidad, nombre_usuario, puntos from Usuario where email = "drasa_00@hotmail.com"
+*/
+
 
 
 
