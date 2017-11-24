@@ -8,7 +8,7 @@ con.connect(function (err) {
     console.log("Error conexion base");
     return;
   }
-  console.log('Conexion establecida en politico_busqueda');
+  console.log('Conexion establecida en partidos');
 });
 
 /*

@@ -50,14 +50,8 @@ app.get('/usuario/:IdUsuario', usuario.get);
 app.post('/usuario', usuario.post);
 app.put('/usuario', usuario.put);
 app.delete('/usuario/:IdUsuario', usuario.delete);
-
-//SignUp
-var signup = require('./routes/signup'); 
-app.post('/signup', signup.post);
-
-//Login
-var login = require('./routes/login'); 
-app.post('/login', login.post);
+app.post('/signup', usuario.signup);
+app.post('/login', usuario.login);
 
 //Politico_busqueda
 var politico_busqueda = require('./routes/politico_busqueda');
@@ -78,7 +72,8 @@ app.post('/insert_historial', politico.insert_historial);
 var propuestas = require('./routes/propuestas'); 
 app.post('/propuesta_like', propuestas.post);
 app.put('/propuesta_like', propuestas.put);
-app.get('/propuesta_like', propuestas.get);
+app.get('/propuesta_like', propuestas.get); 
+app.get('/tipo_propuesta', propuestas.tipo_propuesta);
 
 //update_user
 var update_user = require('./routes/update_user'); 
@@ -87,10 +82,6 @@ app.post('/update_user', update_user.post);
 //partidos
 var partidos = require('./routes/partidos'); 
 app.get('/partidos', partidos.get);
-
-//tipo_propuesta
-var tipo_propuesta = require('./routes/tipo_propuesta'); 
-app.get('/tipo_propuesta', tipo_propuesta.get);
 
 //moderador
 var moderador = require('./routes/moderador'); 

@@ -85,3 +85,63 @@ exports.delete = function (request, response) {
     }
   );
 };
+
+
+/*
+ * POST /signup
+ */
+exports.signup = function (request, response) {
+  response.writeHead(200, { 'Content-Type': 'text/plain' });
+  console.log(request.body);
+  con.query('insert into Usuario values(?,?,?,?,?,?,?,?,?,?)',
+    [
+      null, // id_usuario
+      request.body.NombreUsuario,
+      request.body.CorreoElectronico,
+      request.body.IdTipoUsuario,
+      request.body.Contrasena,
+      request.body.CURP,
+      request.body.Avatar,
+      request.body.Puntos,
+      null, // localidad
+	    null  // fecha_registro
+    ],
+    function (error, rows) {
+      response.end(JSON.stringify(rows));
+    }
+  );
+};
+
+/*
+ * POST /login
+ */
+
+exports.login = function (request, response) {
+  response.writeHead(200, { 'Content-Type': 'application/json' });
+  if(request.body.correo_electronico !="404"){
+    let ip = request.headers['cf-connecting-ip'] || request.headers['x-forwarded-for'] || request.connection.remoteAddress;
+    con.query('select  * from Usuario  where email = ?',
+        [
+          request.body.correo_electronico
+        ],
+        function Query(error, rows) {
+          if(JSON.stringify(rows) != '[]'){
+            let usuario = JSON.parse(JSON.stringify(rows[0]));
+            let bytes  = CryptoJS.AES.decrypt(request.body.ticket, 'jaiba');
+            let ticket = JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
+            if(ticket.direccion_cliente == ip && ticket.route == request.originalUrl){
+              console.log(usuario);
+              response.end(JSON.stringify(usuario));
+            }else{
+              response.end("404");
+            }
+          }	
+        }
+    );
+  }else{
+    response.end("404");
+  }
+	
+};
+
+

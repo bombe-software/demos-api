@@ -8,7 +8,7 @@ con.connect(function (err) {
     console.log("Error conexion base");
     return;
   }
-  console.log('Conexion establecida politico_like');
+  console.log('Conexion establecida update_user');
 });
 
 /*

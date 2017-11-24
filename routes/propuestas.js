@@ -8,7 +8,7 @@ con.connect(function (err) {
     console.log("Error conexion base");
     return;
   }
-  console.log('Conexion establecida politico_like');
+  console.log('Conexion establecida propuestas');
 });
 
 /*
@@ -55,6 +55,22 @@ exports.get = function (request, response) {
       
     ],
     function (error, rows) {
+      response.end(JSON.stringify(rows));
+    }
+  );
+};
+
+/*
+ * GET /tipo_propuesta
+ */
+exports.tipo_propuesta = function (request, response) {
+  response.writeHead(200, { 'Content-Type': 'application/json' });
+  console.log(request.body);
+  con.query('select * from Cat_categoria_propuesta',
+    [
+        null
+    ],
+    function Query(error, rows) {
       response.end(JSON.stringify(rows));
     }
   );
