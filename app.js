@@ -24,7 +24,7 @@ app.use(function (req, res, next) {
 
     
     //let ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
-    let footprint = "{METHOD: '"+req.method+"', URL: '"+req.originalUrl+"', IP: '"+req.ip+"' PARAMS: "+req.body+"}";
+    let footprint = "{METHOD: '"+req.method+"', URL: '"+req.originalUrl+"', IP: '"+req.ip+"' PARAMS: "+JSON.stringify(req.body)+"}";
     secretario.leer("./footprints/foot.txt", data=>{
       if(data == ""){
         secretario.escribir("./footprints/foot.txt",+footprint);
@@ -109,6 +109,7 @@ app.post('/fetch_conversaciones', mensajes.view);
 //mail
 var mail = require('./routes/mail'); 
 app.post('/mail', mail.post);
+app.post('/confirmar_usuario', mail.confirmar_usuario);
 
 
 /*

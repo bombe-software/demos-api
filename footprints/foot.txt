@@ -1,15 +1,2 @@
 NaN
-{METHOD: 'POST', URL: '/get_elecciones', IP: '::ffff:127.0.0.1' PARAMS: undefined}ed}
-{METHOD: 'OPTIONS', URL: '/get_elecciones', IP: '::ffff:127.0.0.1' PARAMS: undefined}
-{METHOD: 'POST', URL: '/get_elecciones', IP: '::ffff:127.0.0.1' PARAMS: undefined}
-{METHOD: 'OPTIONS', URL: '/get_elecciones', IP: '::ffff:127.0.0.1' PARAMS: undefined}
-{METHOD: 'POST', URL: '/get_elecciones', IP: '::ffff:127.0.0.1' PARAMS: undefined}
-{METHOD: 'GET', URL: '/estados', IP: '::ffff:127.0.0.1' PARAMS: undefined}ed}
-{METHOD: 'POST', URL: '/fetch_mensajes', IP: '::ffff:127.0.0.1' PARAMS: undefined}ndefined}
-{METHOD: 'GET', URL: '/estados', IP: '::ffff:127.0.0.1' PARAMS: undefined}defined}
-{METHOD: 'POST', URL: '/politicos', IP: '::ffff:127.0.0.1' PARAMS: undefined}
-{METHOD: 'POST', URL: '/fetch_mensajes', IP: '::ffff:127.0.0.1' PARAMS: undefined}
-{METHOD: 'POST', URL: '/get_elecciones', IP: '::ffff:127.0.0.1' PARAMS: undefined}
-{METHOD: 'GET', URL: '/estados', IP: '::ffff:127.0.0.1' PARAMS: undefined}fined}
-{METHOD: 'POST', URL: '/fetch_mensajes', IP: '::ffff:127.0.0.1' PARAMS: undefined}
-{METHOD: 'GET', URL: '/estados', IP: '::ffff:127.0.0.1' PARAMS: undefined} undefined}
+{METHOD: 'OPTIONS', URL: '/fetch_mensajes', IP: '::ffff:127.0.0.1' PARAMS: undefined}

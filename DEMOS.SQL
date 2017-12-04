@@ -32,6 +32,50 @@ insert into Usuario values(null, 'Jaiba',   'diletalvezalaautopista@gmail.com', 
 insert into Usuario values(null, 'Admin',   'admin@gmail.com', 2, '123', 'ADMIN', 'jaiba', 0, 'En algun lugar', null);
 insert into Usuario values(null, 'hgwells07', 'carlitose07@gmail.com', 2, 'Hola123', 'GODSF', 'anguila', 0, 'En algun lugar', null);
 
+
+create table Usuario_no_confirmado(
+	id_usuario int(100) primary key auto_increment,
+	nombre_usuario varchar(30),
+    email varchar(60),
+    id_tipo_usuario int(2),
+    contrasena varchar(20),
+    curp varchar(20),
+    avatar varchar(20),
+    puntos int(10),
+    localidad varchar(255),
+    fecha_registro TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    foreign key (id_tipo_usuario) references Cat_tipo_usuario(id_tipo_usuario)
+);
+
+
+
+DROP PROCEDURE IF EXISTS confirmar_usuario; ELSE
+DELIMITER //
+CREATE PROCEDURE confirmar_usuario(in idX int) BEGIN
+	select id_usuario into @id_usuario from Usuario_no_confirmado  where id_usuario = idX;
+    select nombre_usuario into @nombre_usuario	from Usuario_no_confirmado  where id_usuario = idX;
+    select email into @email from Usuario_no_confirmado  where id_usuario = idX;
+    select id_tipo_usuario into @id_tipo_usuario	from Usuario_no_confirmado  where id_usuario = idX;
+    select contrasena into @contrasena	from Usuario_no_confirmado  where id_usuario = idX;
+    select curp into @curp	from Usuario_no_confirmado  where id_usuario = idX;
+    select avatar into @avatar	from Usuario_no_confirmado  where id_usuario = idX;
+    select puntos into @puntos	from Usuario_no_confirmado  where id_usuario = idX;
+    select localidad into @localidad 		from Usuario_no_confirmado  where id_usuario = idX;
+    select fecha_registro into @fecha_registro 	from Usuario_no_confirmado  where id_usuario = idX;
+    IF (@id_usuario) THEN                                  
+		insert into Usuario values(null, @nombre_usuario, @email, @id_tipo_usuario, @contrasena, @curp, @avatar, @puntos, @localidad, null);
+		delete from Usuario_no_confirmado where id_usuario = idX;
+    ELSE                                                              
+		select "Accion no valida";
+    END IF;     
+END //
+DELIMITER ;
+call confirmar_usuario(1);
+select * from Usuario_no_confirmado;
+
+
+
+
 CREATE OR REPLACE VIEW UsuarioSeguro AS
 select 
 id_usuario,	nombre_usuario, email, id_tipo_usuario, curp, avatar, puntos, localidad, fecha_registro
@@ -557,6 +601,7 @@ DELIMITER ;
 /*call conversaciones(1);
 select avatar,	curp, email,fecha_registro,	id_tipo_usuario, id_usuario,localidad, nombre_usuario, puntos from Usuario where email = "drasa_00@hotmail.com"
 */
+
 
 
 

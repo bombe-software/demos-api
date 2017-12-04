@@ -2,6 +2,7 @@
 var mysql = require('mysql');
 var config = require('./var_config');
 var con = mysql.createConnection(config.data);
+var CryptoJS = require("crypto-js");
 
 con.connect(function (err) {
   if (err) {
@@ -93,7 +94,7 @@ exports.delete = function (request, response) {
 exports.signup = function (request, response) {
   response.writeHead(200, { 'Content-Type': 'text/plain' });
   console.log(request.body);
-  con.query('insert into Usuario values(?,?,?,?,?,?,?,?,?,?)',
+  con.query('insert into Usuario_no_confirmado values(?,?,?,?,?,?,?,?,?,?)',
     [
       null, // id_usuario
       request.body.NombreUsuario,
@@ -107,9 +108,16 @@ exports.signup = function (request, response) {
 	    null  // fecha_registro
     ],
     function (error, rows) {
-      response.end(JSON.stringify(rows));
+      console.log(JSON.stringify(rows));
     }
   );
+  con.query('select id_usuario from Usuario_no_confirmado where id_usuario in(select MAX(id_usuario) as maximo from Usuario_no_confirmado)',
+  [
+  ],
+  function (error, rows) {
+    response.end(JSON.stringify({id_usuario: rows[0].id_usuario}));
+  }
+);
 };
 
 /*
