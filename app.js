@@ -7,6 +7,10 @@ var io = require('socket.io')(http);
 var bodyParser =  require("body-parser");
 var secretario = require("./secretario").new;
 
+
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
 app.use(function (req, res, next) {
 
     // Website you wish to allow to connect
@@ -24,7 +28,13 @@ app.use(function (req, res, next) {
 
     
     //let ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
-    let footprint = "{METHOD: '"+req.method+"', URL: '"+req.originalUrl+"', IP: '"+req.ip+"' PARAMS: "+JSON.stringify(req.body)+"}";
+    let footprint = "";
+    if(JSON.stringify(req.body) == undefined){
+      footprint = "{METHOD: '"+req.method+"', URL: '"+req.originalUrl+"', IP: '"+req.ip+"', PARAMS:'ninguno' }";
+    }else{
+      footprint = "{METHOD: '"+req.method+"', URL: '"+req.originalUrl+"', IP: '"+req.ip+"', PARAMS: '"+JSON.stringify(req.body)+"'}";
+    }
+    
     secretario.leer("./footprints/foot.txt", data=>{
       if(data == ""){
         secretario.escribir("./footprints/foot.txt",+footprint);
@@ -37,9 +47,6 @@ app.use(function (req, res, next) {
     // Pass to next layer of middleware
     next();
 });
-
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
 
 /*
  *	Configuracion de las rutas

@@ -1,2 +1,2 @@
 NaN
-{METHOD: 'OPTIONS', URL: '/fetch_mensajes', IP: '::ffff:127.0.0.1' PARAMS: undefined}
+{METHOD: 'POST', URL: '/login', IP: '::ffff:127.0.0.1', PARAMS: '{"correo_electronico":"drasa_tec@hotmail.com","ticket":"U2FsdGVkX1+opgZcXzpONZjPcl5TbAZm7V4GwY/EZptvBBsRth9IyElCKaE4sDHC5X1ruENgUzAZud/2AxAEgagWxOg9MeucVFkqT9qmyjQ="}'}
