@@ -118,6 +118,10 @@ var mail = require('./routes/mail');
 app.post('/mail', mail.post);
 app.post('/confirmar_usuario', mail.confirmar_usuario);
 
+//encrypted
+var encrypted = require('./security/rsa/encrypted'); 
+app.get('/encrypted', encrypted.get);
+
 
 /*
  *	Eventos de  Socket.io 
