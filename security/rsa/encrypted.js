@@ -27,7 +27,7 @@ exports.get = function (request, response) {
     
     // {"D":41,"E":5,"N":309}
 
-    let firma = SHA256("Como estas?"+request.body.id_usuario+"Yo jaiba y tu?"+request.body.id_usuario).toString();
+    let firma = SHA256("Como estas?"+1+"Yo jaiba y tu?"+1).toString();
     response.write("Original: " + firma + "<br />");
 
     let cifrado = rsa.cifrar(firma, 41, 309);

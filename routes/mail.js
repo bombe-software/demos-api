@@ -16,11 +16,19 @@ con.connect(function (err) {
 
 
 exports.post = function (request, response) {
-    response.writeHead(200, { 'Content-Type': 'application/json' });
+    let rsa = require('./../security/rsa/rsa');
+    response.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8' });
     //request.body.id_usuario
+    
+    let firma = SHA256("Como estas?"+request.body.id_usuario+"Yo jaiba y tu?"+request.body.id_usuario).toString();
+
+    let cifrado = rsa.cifrar(firma, 41, 309);
+    console.log(cifrado);
+    console.log("cifrado: "+cifrado);
+    
     var data = {
         email: request.body.correo_electronico,
-        mensaje: "Saludos, tu codigo de acceso es: " + SHA256("Como estas?"+request.body.id_usuario+"Yo jaiba y tu?"+request.body.id_usuario)
+        mensaje: "Saludos, tu codigo de acceso es: " + cifrado
     }
     var headNav= axios.post(`http://bombesoftware.com/mini-api/mail.php`, data).then(res => {
             console.log(JSON.stringify(res.data));
@@ -29,6 +37,7 @@ exports.post = function (request, response) {
 };
 
 exports.confirmar_usuario = function (request, response) {
+    let rsa = require('./../security/rsa/rsa');
     var id_usuario = 0;
     con.query('select id_usuario from Usuario_no_confirmado where email =?',
     [
@@ -37,8 +46,19 @@ exports.confirmar_usuario = function (request, response) {
     function (error, rows) {
       id_usuario = rows[0].id_usuario;
       var firma = SHA256("Como estas?"+id_usuario+"Yo jaiba y tu?"+id_usuario)
-      console.log(firma);
-      if( request.body.firma == firma){
+      
+      let descifrado = rsa.descifrar(request.body.firma, 5, 309);
+
+      for (var index = 0; index < descifrado.length; index++) {
+        descifrado = descifrado.replace("*","8");
+        descifrado = descifrado.replace("¨","9");
+        descifrado = descifrado.replace("Û","b");
+      }
+
+
+      console.log("descifrado: " + descifrado);
+
+      if( descifrado == firma){
           con.query('call confirmar_usuario(?)',
           [
               id_usuario

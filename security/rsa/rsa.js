@@ -36,9 +36,7 @@ exports.bytesToCadena = function(bytes){
 exports.cifrarBytes = function(cadena, d, n){
     var cifrado = [];
     for (var i = 0; i < cadena.length; i++) {
-        console.log(cadena[i]);
         cifrado[i] = bigInt(bigInt(parseInt(cadena[i])).pow(d)).mod(n);
-        console.log(cifrado[i]);
     };
     return cifrado;
 };
@@ -46,9 +44,7 @@ exports.cifrarBytes = function(cadena, d, n){
 exports.descifrarBytes = function(cadena, e, n){
     var descifrado = [];
     for (var i = 0; i < cadena.length; i++) {
-        console.log(cadena[i]);
         descifrado[i] = bigInt(bigInt(parseInt(cadena[i])).pow(e)).mod(n);
-        console.log(descifrado[i]);
     };
     return descifrado;
 };
