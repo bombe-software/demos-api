@@ -23,3 +23,17 @@ NaN
 {METHOD: 'POST', URL: '/login', IP: '::ffff:127.0.0.1', PARAMS: '{"correo_electronico":"404"}'}
 {METHOD: 'POST', URL: '/login', IP: '::ffff:127.0.0.1', PARAMS: '{"correo_electronico":"drasa_tec@hotmail.com","ticket":"U2FsdGVkX19h5crYn2ocgEVa2BMlavjs2MoVWo3Sy6k6xQ/0AMDCLBuc05FlJb/1keisSlEdIfuJ34Y4QKAGsGi+UqGQ+rFk96UomZIdQNw="}'}
 {METHOD: 'POST', URL: '/mail', IP: '::ffff:127.0.0.1', PARAMS: '{"id_usuario":1,"correo_electronico":"drasa_tec@hotmail.com"}'}
+{METHOD: 'GET', URL: '/prueba', IP: '::1', PARAMS: '{}'}
+{METHOD: 'GET', URL: '/prueba', IP: '::1', PARAMS: '{}'}
+{METHOD: 'GET', URL: '/prueba', IP: '::1', PARAMS: '{}'}
+{METHOD: 'GET', URL: '/favicon.ico', IP: '::1', PARAMS: '{}'}
+{METHOD: 'GET', URL: '/favicon.ico', IP: '::1', PARAMS: '{}'}
+{METHOD: 'GET', URL: '/prueba', IP: '::ffff:192.168.0.13', PARAMS: '{}'}
+{METHOD: 'GET', URL: '/prueba', IP: '::ffff:192.168.0.13', PARAMS: '{}'}
+{METHOD: 'GET', URL: '/prueba', IP: '::ffff:192.168.0.13', PARAMS: '{}'}
+{METHOD: 'GET', URL: '/prueba', IP: '::ffff:192.168.0.13', PARAMS: '{}'}
+{METHOD: 'GET', URL: '/prueba', IP: '::ffff:192.168.0.13', PARAMS: '{}'}
+{METHOD: 'GET', URL: '/prueba', IP: '::ffff:192.168.0.13', PARAMS: '{}'}
+{METHOD: 'GET', URL: '/prueba', IP: '::ffff:192.168.0.13', PARAMS: '{}'}
+{METHOD: 'GET', URL: '/prueba', IP: '::ffff:192.168.0.13', PARAMS: '{}'}
+{METHOD: 'GET', URL: '/prueba', IP: '::ffff:192.168.0.13', PARAMS: '{}'}
